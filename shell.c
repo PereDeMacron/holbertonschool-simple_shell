@@ -4,7 +4,7 @@
 
 int main(void)
 {
-    int flag = 1, status;
+    int status = 0;
     int arg_count = 0;
     int i;
     char *args[MAX_ARGS];
@@ -17,18 +17,15 @@ int main(void)
     signal(SIGINT, SIG_IGN);
 
     do {
-        write(STDOUT_FILENO, "$ ", 2);
+        if (isatty(STDIN_FILENO)) {
+            write(STDOUT_FILENO, "$ ", 2);
+        }
         get = getline(&input, &buf, stdin);
 
         if (get == -1)
         {
             free(input);
             exit(0);
-        }
-
-        if (input[get - 1] == '\n')
-        {
-            input[get - 1] = '\0';
         }
 
         arg_count = 0;
@@ -76,7 +73,7 @@ int main(void)
             free(args[i]);
         }
 
-    } while (flag == 1);
+    } while (status == 0);
 
     free(input);
 
