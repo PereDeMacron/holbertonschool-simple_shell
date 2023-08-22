@@ -35,10 +35,6 @@ This shell can handle two types of commands: builtins and normal program.
 [![Static Badge](https://img.shields.io/badge/build-Gary-brightgreen?logo=github&label=Github&labelColor=19199&color=191919
 )](https://github.com/PereDeMacron)
 
-[![Static Badge](https://img.shields.io/badge/build-Hocine-brightgreen?logo=github&label=Github&labelColor=19199&color=191919
-)](https://github.com/HB74C21)
-
-
 
 ## 🛠 - Skills
 C, Shell
