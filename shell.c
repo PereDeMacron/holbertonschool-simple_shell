@@ -65,7 +65,7 @@ int main(void)
 			else if (pid == 0)
 			{
 				execvp(args[0], args);
-				perror("");
+				perror("./hsh: 1: hbtn: not found");
 				exit(1);
 			}
 			else
