@@ -26,6 +26,11 @@ int main(void)
             exit(0);
         }
 
+        if (input[get - 1] == '\n')
+        {
+            input[get - 1] = '\0';
+        }
+
         arg_count = 0;
         for (i = 0; i < MAX_ARGS; i++)
         {
