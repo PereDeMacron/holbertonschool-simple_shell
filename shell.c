@@ -2,7 +2,8 @@
 
 #define MAX_ARGS 10
 
-int main(void) {
+int main(void)
+{
     int flag = 1, status;
     int arg_count = 0;
     int i;
@@ -58,7 +59,8 @@ int main(void) {
             else
             {
                 waitpid(pid, &status, 0);
-                if (WIFEXITED(status) && WEXITSTATUS(status) != 0) {
+                if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
+                {
                     fprintf(stderr, "bash: %s: command not found\n", args[0]);
                 }
             }
