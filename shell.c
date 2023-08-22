@@ -57,18 +57,18 @@ int main(void)
             }
             else if (pid == 0)
             {
+                // Child process
+                signal(SIGINT, SIG_DFL);
                 execvp(args[0], args);
                 perror("execvp failed !");
                 exit(1);
             }
-            else
-            {
-                waitpid(pid, &status, 0);
-                if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
-                {
-                    fprintf(stderr, "bash: %s: command not found\n", args[0]);
-                }
-            }
+        }
+
+        waitpid(pid, &status, 0);
+        if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
+        {
+            fprintf(stderr, "bash: %s: command not found\n", args[0]);
         }
 
         for (i = 0; i < arg_count; i++)
