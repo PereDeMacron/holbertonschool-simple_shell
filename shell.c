@@ -46,6 +46,15 @@ int main(void)
 
         if (arg_count > 0)
         {
+            if (strcmp(args[0], "exit") == 0) {
+                free(input);
+                for (i = 0; i < arg_count; i++)
+                {
+                    free(args[i]);
+                }
+                exit(0);
+            }
+
             pid = fork();
             if (pid < 0)
             {
@@ -55,15 +64,22 @@ int main(void)
             else if (pid == 0)
             {
                 execvp(args[0], args);
-                perror("./hsh");
-                exit(1);
+                perror("execvp failed !");
+                exit(127);
             }
             else
             {
                 waitpid(pid, &status, 0);
                 if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
                 {
-                    fprintf(stderr, "./hsh: %d: %s: command not found\n", getpid(), args[0]);
+                    if (WEXITSTATUS(status) == 127)
+                    {
+                        fprintf(stderr, "bash: %s: not found\n", args[0]);
+                    }
+                    else
+                    {
+                        fprintf(stderr, "bash: %s: exit status: %d\n", args[0], WEXITSTATUS(status));
+                    }
                 }
             }
         }
