@@ -11,6 +11,8 @@
 
 #define MAX_ARGS 10
 
+void handle_command(char *args[]);
 void run_shell(void);
+int main(void);
 
 #endif
