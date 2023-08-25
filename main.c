@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * main - Entry point of the shell program.
+ * main - Entry of simple shell program.
  *
  * Return: Always 0.
  */
@@ -12,7 +12,7 @@ int main(void)
 }
 
 /**
- * handle_command - Execute a command with arguments.
+ * handle_command - Execute a command with their args.
  * @args: Array of command arguments.
  */
 void handle_command(char *args[])
