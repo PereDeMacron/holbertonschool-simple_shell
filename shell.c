@@ -7,7 +7,6 @@
 void handle_command(char *args[]) {
     int status = 0;
     pid_t pid;
-    int i;
 
     pid = fork();
     if (pid < 0) {
