@@ -1,6 +1,5 @@
 #include "shell.h"
 
-
 /**
  * run_shell - start the simple shell.
  */

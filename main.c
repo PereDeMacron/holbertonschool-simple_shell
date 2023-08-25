@@ -11,7 +11,6 @@ int main(void)
 	return (0);
 }
 
-
 /**
  * handle_command - execute a command with their args.
  * @args: Array of command arguments.
