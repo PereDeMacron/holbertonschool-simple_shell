@@ -1,7 +1,8 @@
 #include "shell.h"
 
+
 /**
- * run_shell - Start the interactive shell.
+ * run_shell - start the simple shell.
  */
 void run_shell(void)
 {
